@@ -26,5 +26,6 @@ aes(x = DATE, y = COUNTRY, size = EQ_PRIMARY, xmin = as.Date('2000-01-01',"\%Y-\
        legend.key = element_blank(), legend.box = "horizontal", panel.background = element_blank(),
        axis.line.x = element_line(size = 1, color = "black"), axis.ticks.x = element_line(size = 1))
 }
+
 }
 \keyword{datasets}

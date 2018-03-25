@@ -17,6 +17,8 @@
 #' \dontrun{
 #' cleaned_data <- eq_clean_data(raw_data)
 #' }
+#'
+#' @export
 
 eq_clean_data <- function(x){
 
@@ -35,6 +37,8 @@ eq_clean_data <- function(x){
 #' @param location_name Column containing location data.
 #'
 #' @return Returns with a cleaned up \code{LOCATION_NAME} column with no country and colon present.
+#'
+#'@export
 
 
 eq_location_clean <- function(location_name){

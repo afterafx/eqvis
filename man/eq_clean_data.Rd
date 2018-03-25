@@ -21,4 +21,5 @@ Added 1's for dates with missing values.
 \dontrun{
 cleaned_data <- eq_clean_data(raw_data)
 }
+
 }

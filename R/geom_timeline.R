@@ -27,7 +27,7 @@
 #'        legend.key = element_blank(), legend.box = "horizontal", panel.background = element_blank(),
 #'        axis.line.x = element_line(size = .5, color = "black"), axis.ticks.x = element_line(size = .5))
 #'}
-
+#'@export
 
 GeomTimeline <- ggplot2::ggproto("GeoTimeline", ggplot2::Geom,
                                  required_aes = c("x"),
@@ -98,6 +98,8 @@ geom_timeline <- function(mapping = NULL, data = NULL, stat = "timeline",
 #'        legend.key = element_blank(), legend.box = "horizontal", panel.background = element_blank(),
 #'        axis.line.x = element_line(size = 1, color = "black"), axis.ticks.x = element_line(size = 1))
 #'}
+#'
+#'@export
 
 GeomTimelineLabel <- ggplot2::ggproto("GeoTimelineLabel", ggplot2::Geom,
                                     required_aes = c("x", "label"),

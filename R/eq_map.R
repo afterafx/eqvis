@@ -18,7 +18,7 @@
 #'  eq_map(annot_col = "popup_text")
 #'}
 #'
-
+#'@export
 
 eq_map <- function(data, annot_col){
   #data <- as.data.frame(data)
@@ -48,7 +48,7 @@ eq_map <- function(data, annot_col){
 #'  eq_map(annot_col = "popup_text")
 #'}
 #'
-
+#'@export
 
 eq_create_label <- function(data){
   paste(sep = "<br/>", paste('<b>Location:</b>', data$LOCATION_NAME),
