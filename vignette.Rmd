@@ -1,0 +1,73 @@
+---
+title: "eqvis"
+author: "Kevin Baktiar"
+date: "3/24/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+###### A package created for Coursera, using earthquake data from the NOAA.
+###### The data used is specific to the NOAA. The purpose of this package is to
+###### demonstrate reading in the data, showcasing an earthquake timeline, and
+###### showing an interactive map of specific earthquakes.
+
+#### Installation
+
+```{r echo= TRUE, results='hide'}
+library(eqvis)
+```
+```{r include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(grid)
+library(maps)
+library(leaflet)
+library(lubridate)
+```
+
+
+#### Reading In Data
+
+```{r echo=TRUE}
+file_url <- "https://www.ngdc.noaa.gov/nndc/struts/results?type_0=Exact&query_0=$ID&t=101650&s=13&d=189&dfn=signif.txt"
+raw_data <- read.delim(file_url)
+```
+
+#### Cleaning Up The Data
+
+```{r echo=TRUE}
+source('~/eqvis/eq_clean_data.R')
+cleaned_data_example <- eq_clean_data(raw_data)
+head(cleaned_data_example)
+```
+
+#### Visualizing The Data On A Timeline
+
+```{r echo=TRUE}
+source('~/eqvis/geom_timeline.R')
+ggplot(data=subset(cleaned_data_example, !is.na(EQ_PRIMARY) & COUNTRY %in% c("USA", "CHINA")),
+ aes(x = DATE, y = COUNTRY, size = EQ_PRIMARY, xmin = as.Date('2000-01-01',"%Y-%m-%d"),
+    xmax = as.Date('2016-12-31',"%Y-%m-%d"), color = DEATHS, fill = DEATHS, label = LOCATION_NAME)) +
+  geom_timeline(alpha = .5) +
+  scale_size_continuous(name = "Richter Scale Value") +
+  scale_color_continuous(name = "# Deaths") +
+  scale_fill_continuous(guide=FALSE) +
+  labs(y = "") +
+  theme(legend.position = "bottom",
+        legend.key = element_blank(), legend.box = "horizontal", panel.background = element_blank(),
+        axis.line.x = element_line(size = .5, color = "black"), axis.ticks.x = element_line(size = .5))
+```
+
+#### Visualizing The Data On A Interactive Map
+
+```{r echo=TRUE}
+source('~/eqvis/eq_map.R')
+cleaned_data_example %>%
+  dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) %>%
+  dplyr::mutate(popup_text = eq_create_label(.)) %>%
+  eq_map(annot_col = "popup_text")
+```
+

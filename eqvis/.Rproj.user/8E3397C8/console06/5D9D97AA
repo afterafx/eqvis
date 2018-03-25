@@ -1,0 +1,45 @@
+R CMD Check eqvis
+* using log directory ‘/Users/afterafx/eqvis.Rcheck’
+* using R version 3.4.3 (2017-11-30)
+* using platform: x86_64-apple-darwin15.6.0 (64-bit)
+* using session charset: UTF-8
+* checking for file ‘eqvis/DESCRIPTION’ ... OK
+* checking extension type ... Package
+* this is package ‘eqvis’ version ‘0.1.0’
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  .DS_Store
+  .RData
+  .Rhistory
+  .gitignore
+  .Rproj.user
+  .git
+  eqvis/.Rproj.user
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual.
+* checking for portable file names ... NOTE
+Found the following non-portable file path:
+  eqvis/.Rproj.user/shared/notebooks/CE74E9EE-vignette/1/s/lib/leaflet-label-0.2.2/leaflet.label-src.js
+
+Tarballs are only required to store paths of up to 100 bytes and cannot
+store those of more than 256 bytes, with restrictions including to 100
+bytes for the final component.
+See section ‘Package structure’ in the ‘Writing R Extensions’ manual.
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘eqvis’ can be installed ... ERROR
+Installation failed.
+See ‘/Users/afterafx/eqvis.Rcheck/00install.out’ for details.
+* DONE
+
+Status: 1 ERROR, 2 NOTEs
+See
+  ‘/Users/afterafx/eqvis.Rcheck/00check.log’
+for details.
+
+]0;~Courtyard:~ afterafx$ 

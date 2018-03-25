@@ -1,0 +1,19 @@
+Package: eqvis
+Type: Package
+Title: Analyzes Earthquake Data From NOAA 
+Version: 0.1.0
+Author: Kevin Baktiar
+Maintainer: Kevin Baktiar <afterafx@gmail.com>
+Description: This package contains function that is used with data from the 
+    NOAA to produce graphical representations from a timeline to an interactive map.
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Imports:
+    ggplot2,
+    magrittr,
+    leaflet,
+    scales,
+    lubridate,
+    dplyr
