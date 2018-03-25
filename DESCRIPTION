@@ -17,3 +17,4 @@ Imports:
     scales,
     lubridate,
     dplyr
+    webshot

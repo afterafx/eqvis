@@ -33,7 +33,6 @@ raw_data <- read.delim(file_url)
 
 
 ```r
-source('~/eqvis/eq_clean_data.R')
 cleaned_data_example <- eq_clean_data(raw_data)
 ```
 
@@ -136,7 +135,6 @@ head(cleaned_data_example)
 
 
 ```r
-source('~/eqvis/geom_timeline.R')
 ggplot(data=subset(cleaned_data_example, !is.na(EQ_PRIMARY) & COUNTRY %in% c("USA", "CHINA")),
  aes(x = DATE, y = COUNTRY, size = EQ_PRIMARY, xmin = as.Date('2000-01-01',"%Y-%m-%d"),
     xmax = as.Date('2016-12-31',"%Y-%m-%d"), color = DEATHS, fill = DEATHS, label = LOCATION_NAME)) +
@@ -145,6 +143,7 @@ ggplot(data=subset(cleaned_data_example, !is.na(EQ_PRIMARY) & COUNTRY %in% c("US
   scale_color_continuous(name = "# Deaths") +
   scale_fill_continuous(guide=FALSE) +
   labs(y = "") +
+  geom_timeline_label(aes(n_max = 5)) +
   theme(legend.position = "bottom",
         legend.key = element_blank(), legend.box = "horizontal", panel.background = element_blank(),
         axis.line.x = element_line(size = .5, color = "black"), axis.ticks.x = element_line(size = .5))
@@ -152,22 +151,21 @@ ggplot(data=subset(cleaned_data_example, !is.na(EQ_PRIMARY) & COUNTRY %in% c("US
 
 ```
 ## Warning: Removed 16 rows containing non-finite values (stat_timeline).
+
+## Warning: Removed 16 rows containing non-finite values (stat_timeline).
 ```
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png)
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
 
 #### Visualizing The Data On A Interactive Map
 
 
 ```r
-source('~/eqvis/eq_map.R')
 cleaned_data_example %>%
   dplyr::filter(COUNTRY == "MEXICO" & lubridate::year(DATE) >= 2000) %>%
   dplyr::mutate(popup_text = eq_create_label(.)) %>%
   eq_map(annot_col = "popup_text")
 ```
 
-```
-## Error in loadNamespace(name): there is no package called 'webshot'
-```
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
 
