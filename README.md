@@ -12,6 +12,10 @@ output: html_document
 ###### demonstrate reading in the data, showcasing an earthquake timeline, and
 ###### showing an interactive map of specific earthquakes.
 
+#### Travis Badge
+
+[![Build Status](https://travis-ci.org/afterafx/eqvis.svg?branch=master)](https://travis-ci.org/afterafx/eqvis)
+
 #### Installation
 
 
