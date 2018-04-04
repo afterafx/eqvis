@@ -9,5 +9,6 @@ Description: This package contains function that is used with data from the
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Suggests: testthat
 RoxygenNote: 6.0.1
 Imports: magrittr, dplyr, webshot, ggplot2, lubridate, grid, leaflet, maps, scales
